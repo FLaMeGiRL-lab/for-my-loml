@@ -164,10 +164,15 @@ body {
 }
 
 .goodies {
-    position: relative;
     width: min(700px, 100%);
-    height: 650px;
-    margin: auto;
+    margin: 30px auto;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-auto-rows: 180px;
+    gap: 35px;
+    padding: 30px;
+    align-items: center;
+    justify-items: center;
 }
 
 /* generic object */
@@ -183,11 +188,24 @@ body {
     transform: scale(1.08) rotate(0deg) !important;
 }
 
-/* typewriter */
+
+
+/* =========================================
+   GOODIES — FIXED LAYOUT
+========================================= */
+
+.goodie {
+    position: relative;
+    left: auto !important;
+    right: auto !important;
+    top: auto !important;
+    bottom: auto !important;
+    z-index: 2;
+}
+
+/* TYPEWRITER */
 
 .typewriter {
-    left: 7%;
-    top: 9%;
     width: 170px;
     height: 120px;
     background: #33302b;
@@ -232,11 +250,10 @@ body {
     background: #777066;
 }
 
-/* polaroid */
+
+/* POLAROID */
 
 .polaroid {
-    left: 60%;
-    top: 4%;
     width: 145px;
     height: 175px;
     background: #f5ead4;
@@ -257,11 +274,10 @@ body {
     font-size: 11px;
 }
 
+
 /* CD */
 
 .cd {
-    left: 39%;
-    top: 29%;
     width: 125px;
     height: 125px;
     border-radius: 50%;
@@ -289,11 +305,10 @@ body {
     border: 2px solid #8d7d69;
 }
 
-/* camcorder */
+
+/* CAMCORDER */
 
 .camcorder {
-    right: 4%;
-    top: 37%;
     width: 145px;
     height: 95px;
     background: #45423c;
@@ -324,41 +339,10 @@ body {
     border-bottom: 20px solid transparent;
 }
 
-/* voice recorder */
 
-.recorder {
-    left: 8%;
-    bottom: 16%;
-    width: 90px;
-    height: 145px;
-    background: #5a554b;
-    border-radius: 12px;
-    transform: rotate(-10deg);
-    box-shadow: 5px 7px 0 rgba(0,0,0,.16);
-}
-
-.recorder-screen {
-    width: 62px;
-    height: 35px;
-    background: #c5b999;
-    margin: 18px auto;
-    border: 3px solid #37342e;
-}
-
-.recorder-button {
-    width: 30px;
-    height: 30px;
-    border-radius: 50%;
-    background: #b9afa0;
-    margin: 8px auto;
-    border: 3px solid #393630;
-}
-
-/* drawing */
+/* DRAWING */
 
 .drawing {
-    right: 25%;
-    bottom: 10%;
     width: 135px;
     height: 170px;
     background: #f3e7ce;
@@ -400,44 +384,17 @@ body {
     right: 10px;
 }
 
-/* map */
 
-.map {
-    left: 43%;
-    bottom: 5%;
-    width: 125px;
-    height: 105px;
-    background: #d9cba9;
-    border: 2px solid #9e8d6c;
-    transform: rotate(8deg);
-    box-shadow: 4px 6px 0 rgba(0,0,0,.12);
-}
 
-.map::before {
-    content: "";
-    position: absolute;
-    width: 80%;
-    height: 2px;
-    background: #8d8066;
-    top: 45px;
-    left: 10%;
-    transform: rotate(-20deg);
-}
 
-.map::after {
-    content: "♥";
-    position: absolute;
-    color: #674737;
-    font-size: 25px;
-    left: 48px;
-    top: 35px;
-}
 
-/* coupon */
+
+
+
+
+/* COUPON */
 
 .coupon {
-    right: 3%;
-    bottom: 12%;
     width: 145px;
     height: 75px;
     background: #e9dcc0;
@@ -559,40 +516,67 @@ video {
     letter-spacing: 3px;
 }
 
-/* mobile */
+/* =========================================
+   MOBILE LAYOUT
+========================================= */
 
 @media (max-width: 600px) {
 
     .goodies {
-        height: 700px;
-        transform: scale(.88);
-        transform-origin: top center;
+        width: 100%;
+        margin: 20px auto;
+        padding: 25px 10px 50px;
+
+        display: grid;
+
+        grid-template-columns: repeat(2, 1fr);
+
+        grid-auto-rows: 190px;
+
+        gap: 45px 10px;
+
+        align-items: center;
+        justify-items: center;
+    }
+
+    .goodie {
+        position: relative;
+
+        left: auto !important;
+        right: auto !important;
+        top: auto !important;
+        bottom: auto !important;
+
+        transform: scale(.82);
     }
 
     .typewriter {
-        left: 0;
+        transform: scale(.82) rotate(-6deg);
     }
 
     .polaroid {
-        right: 0;
-        left: auto;
+        transform: scale(.82) rotate(8deg);
+    }
+
+    .cd {
+        transform: scale(.82) rotate(-12deg);
     }
 
     .camcorder {
-        right: 0;
+        transform: scale(.82) rotate(7deg);
     }
 
     .drawing {
-        right: 12%;
+        transform: scale(.82) rotate(-5deg);
     }
 
-    .map {
-        left: 35%;
-    }
+  
 
     .coupon {
-        right: 0;
+        transform: scale(.82) rotate(-4deg);
     }
+
+
 }
 </style>
 </head>
@@ -737,9 +721,9 @@ video {
         <div class="goodie coupon"
              onclick="showCoupon()">
 
-            ONE FREE
+            FREE HUGS
             <br>
-            HANGOUT
+            FOREVER
 
             <div class="goodie-label">
                 redeem me
@@ -801,7 +785,7 @@ From Amnaaa
     `,
 
     photo:
-    "https://kommodo.ai/i/8304YaitDKoDIA2YskSZ",
+    "https://cdn.phototourl.com/free/2026-08-18-3957bbed-c7d4-4365-9c04-a4066d3dbdcd.jpg",
 
     song:
     "https://open.spotify.com/track/6yZv0Nl6BXABbXoPVpfF5y?si=ZxBFr5meQ4yKx8SJYeI-UA&utm_source=copy-link",
@@ -812,7 +796,7 @@ From Amnaaa
     
 
     drawing:
-    "https://kommodo.ai/i/6RyhMI7YNIAENRwMxeS9",
+    "https://cdn.phototourl.com/free/2026-08-18-a09ba096-d1b9-4e3a-821f-1b5c4d631627.jpg",
 
     
 
@@ -942,22 +926,8 @@ function showPhoto() {
 
 function showSong() {
 
-    openModal(`
+    window.open(CONTENT.song, "_blank");
 
-        <h2 class="modal-title">
-            This song reminded me of you
-        </h2>
-
-        <audio controls autoplay>
-
-            <source
-                src="${CONTENT.song}"
-                type="audio/mpeg"
-            >
-
-        </audio>
-
-    `);
 }
 
 
